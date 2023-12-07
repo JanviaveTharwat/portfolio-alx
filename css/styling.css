@@ -1,0 +1,395 @@
+/*global rvariables */
+:root {
+    --main-color: #10cab7;
+    --secondary-color:#2c4755;
+    --section-padding: 60px;
+    --section-background: #f6f6f6;
+    --main-duration: 0.5s;
+}
+
+/*end of global variables*/
+/*startcomponents*/
+/*subtitles*/
+.subtitles{
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+}
+/*p*/
+.subtitles +p{
+    margin: -30px 0 0;
+    font-size: 20px;
+    text-align: center;
+    color: #797979;
+}
+@media(min-width:767px){
+    .subtitles{
+        font-size: 60px;
+    }
+    .subtitles +p{
+        margin-top: -20px;
+    }
+}
+/*end cof components*/
+
+/* rules*/
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;  
+}
+/*small screen start from 768 px*/
+@media (min-width: 769px){
+    .container{
+        width: 750px;
+    }
+}
+/* medium screen start from 992 px*/
+@media(min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+/*large screen start from 1200 px*/
+@media(min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+}
+/* end of rules*/
+/*header*/
+.header{
+    padding: 20px;
+}
+/* container styling */
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*logo styling*/
+.header .logo {
+    width: 50px;
+    color: var(--secondary-color);
+}
+/* menu styling */
+.header .menu{
+    position: relative;
+}
+/* hover over menu what will hapend to span and its children*/
+.header .menu:hover span:nth-child(2){
+    width: 100px;
+}
+/* icon styling*/
+.header .menu .icon{
+    width:30px;
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: flex-end;
+}
+/* span styling*/
+.header .menu .icon span{
+    background-color: black;
+    margin-bottom: 5px;
+    height: 2px;
+}
+/* span children styling*/
+/* first child*/
+.header .menu .icon span:first-child{
+    width: 100%;
+}
+/*second child */
+.header .menu .icon span:nth-child(2){
+    width: 60%;
+    transition:var(--main-duration);
+}
+/* last child*/
+.header .menu .icon span:last-child{
+    width: 100%;
+}
+/*ul styling */
+.header .menu ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+    background-color: #f6f6f6;
+    position: absolute;
+    right:0;
+    min-width: 200px;
+    top: calc(100%+30px);
+    display: none;
+    z-index: 1;
+}
+/*what hapend befor ul  */
+.header .menu ul::before{
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fefefe transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px; 
+}
+/*to hover over menu what will happend to ul*/
+.header .menu:hover ul{
+    display: block;
+}
+/*a styling*/
+.header .menu ul li a{
+    display: block;
+    padding: 15px;
+    color:black;
+    /*for removing underline */
+    text-decoration: none;
+    /*to popup smoothly*/
+    transition: var(--main-duration);
+}
+/*hover over a*/
+.header .menu ul li a:hover{
+    padding-left: 25px;
+}
+/*to eliminate only one child from doing somthing*/
+.header .menu ul li:not(:last-child) a{
+    border-bottom: 1px solid #ddd;
+}
+/*landing */
+.landing{
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    /* calculating full height of the pic-header size*/
+    height: calc(100vh - 64px);
+    /*for making childern centered in the midel of its parent */
+    position: relative;
+}
+
+/* intro styling */
+.landing .intro{
+    background: rgba(255, 255, 255, 0.534);
+    /* for centering text in the midel of the screen*/
+    position: absolute;
+    left: 50%;
+    top:50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    width: 750px;
+    max-width: 100%;
+}
+/* hi styling*/
+.landing .intro h1{
+    /* for removing scrol of the pic background*/
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--main-color);
+}
+/* p styling*/
+.landing .intro p{
+    font-size: 20px;
+    line-height: 1.8;
+}
+.landing .intro span{
+    color:rgba(255, 102, 0, 0.61);
+}
+/*features */
+.features{
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+/*feat styling*/
+.features  .feat {
+    padding: 20px;
+    text-align: center;
+}
+.features  .feat i{
+    color: var(--main-color);
+}
+.features .feat h3{
+    font-weight: 800;
+    margin: 30px 0;
+}
+.features .feat p{
+    line-height: 1.8;
+    color: #777;
+    font-size: 17px;
+}
+/*services*/
+.services{
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+/*container styling*/
+.services .content{
+   margin-top: 100px;
+}
+/*srv*/
+.services .content .srv{
+    display: flex;
+    margin-bottom: 40px;
+}
+/*smal screen*/
+@media (max-width :767px){
+    .services .content .srv{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/*i styling */
+.services .content .srv i{
+    color: var(--main-color);
+    flex-basis: 60px;
+}
+/*text styling*/
+.services .content .srv .text{
+    flex: 1;
+}
+/*h3 syling*/
+.services .content .srv .text h3{
+    margin:0 0 20px;
+}
+/* p styling*/
+.services .content .srv .text p{
+    color: #444;
+    font-weight: 300;
+    line-height: 1.6;
+}
+/*image*/
+.services .content .image {
+    text-align: center;
+    position: relative;
+}
+.services .content .image::before{
+    content: "";
+    background-color: var(--secondary-color);
+    width: 100px;
+    height: calc(100% + 100px);
+    top: -50px;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.services .content .image img{
+    width: 260px;
+}
+@media (max-width:1199px){
+    .services .content .image-colume{
+        display: none;
+    }
+}
+.services .content{
+    margin-top: 80px;
+}
+.services.content .card {
+    background-color: white;
+  }
+  @media (max-width :767px){
+    .services .content .card {
+     text-align: center;
+    } 
+}
+.services .content .card img {
+    max-width: 100%;
+  }
+  .services .content .card .info {
+    padding: 20px;
+  }
+  .services .content .card .info h3 {
+    margin: 0;
+  }
+  .services .content .card .info p {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+  /*about*/
+  .about{
+    padding-top: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) + 60px);
+  }
+  .about .content{
+    margin-top:100px ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (max-width: 991px) {
+    .about .content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .about .content .image{
+    position: relative;
+  }
+  @media (max-width: 991px) {
+    .about .content .image {
+      margin: 0 auto 60px;
+    }
+  }
+  .about .content .image::before{
+    content: "";
+    position: absolute;
+    left:-20px;
+    top:-50px;
+    width: 100px;
+    height: calc(100% + 100px);
+    z-index: -1;
+    background-color:#04315e;
+  }
+  .about .content .image::after{
+    top: -40px;
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    z-index: -1;
+    right: -150px;
+  }
+  @media (max-width: 991px) {
+    .about .content .image::after ,
+    .about.content.image::before {
+     display: none;
+    }
+  }
+  .about .content .image img {
+    max-width: 100%;
+    height: 483px;
+    width: 757px;
+  }
+  .about .content .text{
+    flex: 1;
+    padding-left: 200px;
+  }
+  .about p{
+    line-height: 1.6;
+  }
+  .about .content .text p{
+    margin-bottom: 50px;
+    font-weight: bold;
+  }
+
